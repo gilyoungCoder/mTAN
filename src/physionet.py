@@ -83,14 +83,14 @@ class PhysioNet(object):
     
     if self.device == 'cpu':
       self.data = torch.load(os.path.join(self.processed_folder, data_file), map_location='cpu')
-      self.labels = torch.load(os.path.join(self.processed_folder, self.label_file), map_location='cpu')
+      # self.labels = torch.load(os.path.join(self.processed_folder, self.label_file), map_location='cpu')
     else:
       self.data = torch.load(os.path.join(self.processed_folder, data_file))
-      self.labels = torch.load(os.path.join(self.processed_folder, self.label_file))
+      # self.labels = torch.load(os.path.join(self.processed_folder, self.label_file))
 
     if n_samples is not None:
       self.data = self.data[:n_samples]
-      self.labels = self.labels[:n_samples]
+      # self.labels = self.labels[:n_samples]
 
 
   def download(self):
@@ -222,8 +222,8 @@ class PhysioNet(object):
   def label_file(self):
     return 'Outcomes-a.pt'
 
-  def __getitem__(self, index):
-    return self.data[index]
+  # def __getitem__(self, index):
+  #   return self.data[index]
 
   def __len__(self):
     return len(self.data)
