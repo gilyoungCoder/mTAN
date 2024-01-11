@@ -116,7 +116,7 @@ class PhysioNet(object):
           outcomes[record_id] = torch.Tensor(labels).to(self.device)
 
         torch.save(
-          labels,
+          outcomes,
           os.path.join(self.processed_folder, filename.split('.')[0] + '.pt')
         )
 
